@@ -151,6 +151,8 @@ def get_log_return_data(stocks, using_data):
         # 何%以上上昇した場合に購入するかの閾値を得る
         up_index = int(len(train_close_rates) * (1. - UP_RATE))
         print ("UP_INDEX : " + repr( up_index ))
+        if ( up_index <= 0 ):
+            continue
         up_rate = train_close_rates[up_index] - 1.
 
         # np.log(当日終値 / 前日終値) で前日からの変化率を算出
