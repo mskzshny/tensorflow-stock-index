@@ -150,6 +150,7 @@ def get_log_return_data(stocks, using_data):
         train_close_rates.sort()
         # 何%以上上昇した場合に購入するかの閾値を得る
         up_index = int(len(train_close_rates) * (1. - UP_RATE))
+        print ("UP_INDEX : " + repr( up_index ))
         up_rate = train_close_rates[up_index] - 1.
 
         # np.log(当日終値 / 前日終値) で前日からの変化率を算出
@@ -648,7 +649,7 @@ if __name__ == '__main__':
     stocks = {
         # 株価指標
         'DOW': Stock(YahooCom, '^DJI', 1),
-        'FTSE': Stock(YahooCom, '^FTSE', 1),
+        #'FTSE': Stock(YahooCom, '^FTSE', 1),
         'GDAXI': Stock(YahooCom, '^GDAXI', 1),
         'HSI': Stock(YahooCom, '^HSI', 1),
         'N225': Stock(YahooCom, '^N225', 1),
